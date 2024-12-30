@@ -49,6 +49,16 @@ import com.example.remotedatabase.ui.viewmodel.PenyediaViewModel
 
 
 @Composable
+fun OnLoading(modifier: Modifier = Modifier){
+    Image(
+        modifier = modifier.size(200.dp),
+        painter = painterResource(R.drawable.loading),
+        contentDescription = stringResource(R.string.loading)
+    )
+}
+
+
+@Composable
 fun OnError(retryAction: () -> Unit, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
