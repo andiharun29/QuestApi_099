@@ -19,7 +19,17 @@ object PenyediaViewModel {
                 aplikasiMahasiswa().container.mahasiswaRepository
             )
         }
-
+        initializer {
+            UpdateViewModel(
+                createSavedStateHandle(),
+                aplikasiMahasiswa().container.mahasiswaRepository
+            )
+        }
+        initializer {
+            DetailViewModel(
+                aplikasiMahasiswa().container.mahasiswaRepository
+            )
+        }
     }
 }
 
