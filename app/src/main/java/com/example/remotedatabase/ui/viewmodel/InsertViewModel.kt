@@ -9,6 +9,26 @@ import com.example.remotedatabase.Repository.MahasiswaRepository
 import com.example.remotedatabase.model.Mahasiswa
 import kotlinx.coroutines.launch
 
+class InsertViewModel(
+    private val mhs: MahasiswaRepository
+): ViewModel() {
+    var uiState by mutableStateOf(InsertUiState())
+    private set
+
+    fun updateInsertMahasiswa(insertUiEvent: InsertUiEvent){
+        uiState = InsertUiState(insertUiEvent = insertUiEvent)
+    }
+
+    suspend fun insertMhs(){
+        viewModelScope.launch {
+            try {
+                mhs.insertMahasiswa(uiState.insertUiEvent.toMahasiswa())
+            }catch (e: Exception){
+                e.printStackTrace()
+            }
+        }
+    }
+}
 
 data class InsertUiState(
     val insertUiEvent: InsertUiEvent = InsertUiEvent()
