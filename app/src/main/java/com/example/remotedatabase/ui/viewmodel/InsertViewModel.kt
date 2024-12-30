@@ -10,6 +10,9 @@ import com.example.remotedatabase.model.Mahasiswa
 import kotlinx.coroutines.launch
 
 
+data class InsertUiState(
+    val insertUiEvent: InsertUiEvent = InsertUiEvent()
+)
 
 data class InsertUiEvent(
     val nim: String = "",
