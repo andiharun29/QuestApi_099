@@ -11,6 +11,15 @@ import kotlinx.coroutines.launch
 
 
 
+fun InsertUiEvent.toMahasiswa(): Mahasiswa = Mahasiswa(
+    nim = nim,
+    nama = nama,
+    alamat = alamat,
+    jeniskelamin = jeniskelamin,
+    kelas = kelas,
+    angkatan = angkatan
+)
+
 fun Mahasiswa.toUiStateMahasiswa(): InsertUiState = InsertUiState(
     insertUiEvent = toInsertUiEvent()
 )
